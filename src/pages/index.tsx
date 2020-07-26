@@ -1,7 +1,7 @@
-import React, {FC} from 'react'
-import Head from 'next/head'
+import * as React from 'react';
+import Head from 'next/head';
 
-const Home: FC = () => (
+const Home: React.FC = () => (
   <div>
     <Head>
       <title>Home</title>
@@ -9,6 +9,6 @@ const Home: FC = () => (
     </Head>
     <div>hoge</div>
   </div>
-)
+);
 
-export default Home
+export default Home;
