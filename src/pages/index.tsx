@@ -1,5 +1,6 @@
-import * as React from 'react';
-import Head from 'next/head';
+import * as React from "react";
+import Head from "next/head";
+import Link from "next/link";
 
 const Home: React.FC = () => (
   <div>
@@ -7,7 +8,21 @@ const Home: React.FC = () => (
       <title>Home</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
-    <div>hoge</div>
+    <div>
+      <h1>TOP</h1>
+      <ul>
+        <li>
+          <Link href="/about">
+            <a>about</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/inquiry">
+            <a>inquiry</a>
+          </Link>
+        </li>
+      </ul>
+    </div>
   </div>
 );
 
