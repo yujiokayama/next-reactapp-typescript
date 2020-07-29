@@ -1,23 +1,26 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 type State = {
   counter: number;
 };
 
 const initialState: State = {
-  counter: 0,
+  counter: 0
 };
 
 const testModule = createSlice({
-  name: "counter",
+  name: 'counter',
   initialState,
   reducers: {
-    addCount: (state: State) => {
+    incrementCount: (state: State, action) => {
       state.counter++;
     },
-  },
+    decrementCount: (state: State, action) => {
+      state.counter--;
+    }
+  }
 });
 
-export const { addCount } = testModule.actions;
+export const { incrementCount, decrementCount } = testModule.actions;
 
 export default testModule;

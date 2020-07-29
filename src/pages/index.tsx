@@ -5,7 +5,7 @@ import Link from "next/link";
 const Home: React.FC = () => (
   <div>
     <Head>
-      <title>Home</title>
+      <title>TOP</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <div>
