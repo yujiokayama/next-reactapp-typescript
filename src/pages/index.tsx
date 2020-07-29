@@ -1,29 +1,45 @@
-import * as React from "react";
-import Head from "next/head";
-import Link from "next/link";
+import * as React from 'react';
+import Head from 'next/head';
+import Link from 'next/link';
 
-const Home: React.FC = () => (
-  <div>
-    <Head>
-      <title>TOP</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { RootState } from '../store/rootReducer';
+
+import { incrementCounter, decrementCounter } from '../store/modules/Counter';
+
+const Home: React.FC = () => {
+  const { count } = useSelector((state: RootState) => state.Counter);
+  const dispatch = useDispatch();
+  const increment = () => dispatch(incrementCounter(1));
+  const decrement = () => dispatch(decrementCounter(1));
+
+  return (
     <div>
-      <h1>TOP</h1>
-      <ul>
-        <li>
-          <Link href="/about">
-            <a>about</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/inquiry">
-            <a>inquiry</a>
-          </Link>
-        </li>
-      </ul>
+      <Head>
+        <title>TOP</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      {count}
+      <button onClick={increment}>増やす</button>
+      <button onClick={decrement}>減らす</button>
+      <div>
+        <h1>TOP</h1>
+        <ul>
+          <li>
+            <Link href="/about">
+              <a>about</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/inquiry">
+              <a>inquiry</a>
+            </Link>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Home;

@@ -1,8 +1,8 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import TestModules from "./modules/testModules";
+import counterModule from "./modules/Counter";
 
 const rootReducer = combineReducers({
-  Test: TestModules.reducer
+  Counter: counterModule.reducer
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
