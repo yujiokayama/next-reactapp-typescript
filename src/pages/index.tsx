@@ -6,13 +6,22 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { RootState } from '../store/rootReducer';
 
-import { incrementCounter, decrementCounter } from '../store/modules/Counter';
+import {
+  incrementCounter,
+  decrementCounter,
+  fetchAPI
+} from '../store/modules/Counter';
 
 const Home: React.FC = () => {
-  const { count } = useSelector((state: RootState) => state.Counter);
+  const { count, list } = useSelector((state: RootState) => state.Counter);
   const dispatch = useDispatch();
   const increment = () => dispatch(incrementCounter(1));
   const decrement = () => dispatch(decrementCounter(1));
+
+  // マウント後に実行したい処理
+  React.useEffect(() => {
+    dispatch(fetchAPI());
+  }, []);
 
   return (
     <div>
@@ -21,6 +30,17 @@ const Home: React.FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {count}
+
+      <ul>
+        {list.map((v) => (
+          <li key={v.id}>
+            {v.id}
+            {v.name}
+            {v.age}
+          </li>
+        ))}
+      </ul>
+
       <button onClick={increment}>増やす</button>
       <button onClick={decrement}>減らす</button>
       <div>

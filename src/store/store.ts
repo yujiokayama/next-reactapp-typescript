@@ -17,6 +17,6 @@ export const setupStore = (): EnhancedStore => {
   return configureStore({
     reducer: rootReducer,
     middleware: middlewares,
-    devTools: false
+    devTools: true
   });
 };
